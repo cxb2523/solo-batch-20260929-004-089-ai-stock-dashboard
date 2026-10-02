@@ -1,6 +1,7 @@
 import yfinance as yf
 import pandas as pd
 import numpy as np
+from typing import Any, Optional, Tuple
 import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
@@ -11,6 +12,26 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 import warnings
 warnings.filterwarnings('ignore')
+
+
+@st.cache_data(ttl=900, show_spinner=False)
+def fetch_price_history(symbol: str, period: str) -> pd.DataFrame:
+    """Cached price-history fetch.
+
+    Cache key is ``symbol`` + ``period`` (ticker plus the analysis period);
+    the ``info`` dict is intentionally kept out of this cache (see
+    ``fetch_stock_info``).
+    """
+    ticker = yf.Ticker(symbol)
+    return ticker.history(period=period)
+
+
+@st.cache_data(ttl=900, show_spinner=False)
+def fetch_stock_info(symbol: str) -> dict:
+    """Cached company info dict keyed by ticker only."""
+    ticker = yf.Ticker(symbol)
+    info = ticker.info
+    return info if isinstance(info, dict) else {}
 
 # Configure Streamlit page
 st.set_page_config(
@@ -25,18 +46,17 @@ class StockAnalyzer:
         self.scaler = StandardScaler()
         self.model = RandomForestRegressor(n_estimators=100, random_state=42)
         
-    def fetch_stock_data(self, symbol, period="1y"):
+    def fetch_stock_data(self, symbol: str, period: str = "1y") -> Tuple[Optional[pd.DataFrame], Optional[dict]]:
         """Fetch stock data with error handling"""
         try:
-            stock = yf.Ticker(symbol)
-            data = stock.history(period=period)
-            info = stock.info
+            data = fetch_price_history(symbol, period)
+            info = fetch_stock_info(symbol)
             return data, info
         except Exception as e:
             st.error(f"Error fetching data for {symbol}: {str(e)}")
             return None, None
     
-    def calculate_technical_indicators(self, data):
+    def calculate_technical_indicators(self, data: pd.DataFrame) -> pd.DataFrame:
         """Calculate comprehensive technical indicators using pure pandas/numpy"""
         df = data.copy()
         
@@ -91,7 +111,7 @@ class StockAnalyzer:
         
         return df
     
-    def prepare_ml_features(self, data):
+    def prepare_ml_features(self, data: pd.DataFrame) -> pd.DataFrame:
         """Prepare features for machine learning"""
         df = data.copy()
         
@@ -124,7 +144,7 @@ class StockAnalyzer:
         
         return df
     
-    def train_prediction_model(self, data):
+    def train_prediction_model(self, data: pd.DataFrame) -> Optional[dict]:
         """Train ML model for price prediction"""
         df = self.prepare_ml_features(data)
         df = df.dropna()
@@ -178,7 +198,7 @@ class StockAnalyzer:
             'feature_cols': feature_cols
         }
     
-    def predict_next_price(self, model_info):
+    def predict_next_price(self, model_info: Optional[dict]) -> Optional[float]:
         """Predict next trading day price"""
         if model_info is None:
             return None
@@ -188,7 +208,7 @@ class StockAnalyzer:
         
         return prediction
     
-    def generate_market_analysis(self, data, info, symbol):
+    def generate_market_analysis(self, data: pd.DataFrame, info: dict, symbol: str) -> list:
         """Generate AI-powered market analysis"""
         latest = data.iloc[-1]
         prev = data.iloc[-2]
@@ -291,7 +311,7 @@ class StockAnalyzer:
         
         return analysis
 
-def create_advanced_chart(data, symbol):
+def create_advanced_chart(data: pd.DataFrame, symbol: str):
     """Create advanced candlestick chart with technical indicators"""
     fig = make_subplots(
         rows=4, cols=1,
@@ -419,7 +439,7 @@ def create_advanced_chart(data, symbol):
     
     return fig
 
-def create_performance_metrics(data, symbol):
+def create_performance_metrics(data: pd.DataFrame, symbol: str) -> None:
     """Create performance metrics visualization"""
     # Calculate returns
     data['Daily_Returns'] = data['Close'].pct_change()
@@ -469,10 +489,20 @@ def create_performance_metrics(data, symbol):
 def main():
     st.title("🚀 Professional AI Stock Market Dashboard")
     st.markdown("*Advanced technical analysis with machine learning predictions*")
+
+    # session_state keys live for the whole browser session; unlike st.cache_data
+    # they are never shared between users/tickers unless the key says so.
+    st.session_state.setdefault("last_symbol", "AAPL")
+    st.session_state.setdefault("refresh_count", 0)
+    st.session_state.setdefault("analysis_history", [])
     
     # Sidebar
     st.sidebar.header("📊 Dashboard Controls")
     st.sidebar.markdown("---")
+    st.sidebar.caption(
+        f"Session refreshes: {st.session_state['refresh_count']} · "
+        f"last ticker: {st.session_state['last_symbol']}"
+    )
     
     # Stock selection with popular choices
     popular_stocks = {
@@ -511,11 +541,24 @@ def main():
     st.sidebar.markdown("---")
     
     if st.sidebar.button("🔄 Refresh Data", type="primary"):
-        st.cache_data.clear()
+        # manual invalidation: drops the ticker+period cache entries and forces a rerun
+        fetch_price_history.clear()
+        fetch_stock_info.clear()
+        st.session_state["refresh_count"] = st.session_state["refresh_count"] + 1
+        st.session_state["last_symbol"] = symbol
+        st.session_state["analysis_history"].append(
+            {"symbol": symbol, "period": period, "at": datetime.now().isoformat(timespec="seconds")}
+        )
         st.rerun()
+
+    st.session_state["last_symbol"] = symbol
     
     # Initialize analyzer
     analyzer = StockAnalyzer()
+
+    cached_symbol = st.session_state.get("last_symbol")
+    if cached_symbol != symbol:
+        st.session_state["last_symbol"] = symbol
     
     # Fetch and display data
     with st.spinner(f"📡 Fetching live data for {symbol}..."):

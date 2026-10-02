@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stock Dashboard · 数据流调用图</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div id="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <div>
+          <h1>数据流追踪</h1>
+          <p class="brand-sub">stock_dashboard.py · AST 静态调用图</p>
+        </div>
+      </div>
+
+      <label class="field-label" for="ticker">Ticker</label>
+      <div class="ticker-row">
+        <input id="ticker" type="text" maxlength="10" value="AAPL" spellcheck="false" />
+        <button id="applyTicker" type="button">应用</button>
+      </div>
+      <div class="ticker-quick">
+        <button data-ticker="AAPL">AAPL</button>
+        <button data-ticker="MSFT">MSFT</button>
+        <button data-ticker="TSLA">TSLA</button>
+        <button data-ticker="GOOGL">GOOGL</button>
+        <button data-ticker="NVDA">NVDA</button>
+      </div>
+      <p class="cache-preview">
+        当前缓存键预览
+        <code id="cacheKeyPreview">fetch_price_history:AAPL:1y</code>
+      </p>
+
+      <div class="tabs" id="tabBar"></div>
+
+      <div class="legend">
+        <h2>复用 / 重算分界</h2>
+        <div><span class="swatch swatch-reuse"></span> 标签页内复用（同 tab）</div>
+        <div><span class="swatch swatch-recompute"></span> 重算（tab 外/每次执行）</div>
+        <div><span class="swatch swatch-crosstab"></span> 跨标签页边界</div>
+        <div><span class="swatch swatch-unresolved"></span> 不可解析（间接/动态）</div>
+      </div>
+
+      <div class="build-meta" id="buildMeta"></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="metrics" id="metrics"></div>
+        <div class="status-pill" id="statusPill"></div>
+      </header>
+
+      <section id="greyNotice" class="grey-notice hidden">
+        <h2>不可解析占比超过 15%</h2>
+        <p>动态属性 / 间接调用过多，静态追踪无法给出可信结论，页面结论区已置灰。</p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>调用图节点</h2>
+          <input id="nodeFilter" type="search" placeholder="筛选函数名 / 文件 / 缓存键…" />
+        </div>
+        <div id="graphView" class="graph-view"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>条目明细（仅显示可落到源码行的条目）</h2>
+          <div class="entry-count" id="entryCount"></div>
+        </div>
+        <div class="table-wrap">
+          <table id="entryTable">
+            <thead>
+              <tr>
+                <th>函数名</th>
+                <th>文件</th>
+                <th>行号</th>
+                <th>session_state 键</th>
+                <th>缓存键</th>
+                <th>失效条件</th>
+                <th>状态</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel source-panel">
+        <div class="panel-head">
+          <h2 id="sourceTitle">源码（点击节点或行高亮）</h2>
+          <div class="source-hint" id="sourceHint">未选择节点</div>
+        </div>
+        <pre id="sourceView" class="source-view"><code></code></pre>
+      </section>
+    </main>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

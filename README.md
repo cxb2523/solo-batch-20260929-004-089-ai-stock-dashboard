@@ -170,6 +170,15 @@ Our AI uses a **Random Forest Regressor** trained on 30+ features including:
 
 ```
 ├── stock_dashboard.py      # Main application
+├── trace/
+│   ├── builder.py          # AST call-graph builder (full/incremental)
+│   ├── server.py           # Read-only viewer server (graph.json + source)
+│   ├── graph.json          # Generated call graph (committed artifact)
+│   └── web/                # Viewer UI (ticker, tabs, nodes, source)
+├── tools/
+│   └── verify.mjs          # Coverage & unresolvable-ratio gates
+├── docs/
+│   └── tradeoffs.md        # Cache-key & rerun/blocking trade-offs
 ├── requirements.txt        # Dependencies
 ├── README.md              # Documentation
 └── screenshots/           # UI screenshots
@@ -180,6 +189,34 @@ Our AI uses a **Random Forest Regressor** trained on 30+ features including:
     ├── ai_analysis.jpg
     └── company_info.jpg
 ```
+
+## 🔍 Data-Flow Trace Viewer
+
+Static (AST) tracing of the dashboard's data flow — no code is executed:
+
+1. Build the graph (also runs automatically on first server start):
+```bash
+python trace/builder.py            # incremental; use --full to force a rescan
+```
+2. Start the read-only local server:
+```bash
+python trace/server.py             # http://127.0.0.1:8899
+```
+3. Run both gates (server must already be running) and see real numbers:
+```bash
+node tools/verify.mjs              # TRACE_URL=http://127.0.0.1:8899
+```
+
+- Left panel: ticker input (cache keys update live) + Streamlit tabs.
+- Right panel: per-entry function name, source line, `session_state` keys,
+  cache keys and invalidation conditions; click a node to highlight its
+  source lines. Green/orange/purple separate reuse vs recompute boundaries.
+- Incremental rescans only changed modules but must be edge-for-edge identical
+  to a full rescan; a possible stale cross-module indirect edge forces a full
+  fallback.
+- Dynamic attributes / indirect calls are recorded as unresolvable; when they
+  exceed 15% the page greys out and draws no conclusion. Entries without a
+  concrete source line are hidden.
 
 ## 🤝 Contributing
 
