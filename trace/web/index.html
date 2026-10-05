@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>stock_dashboard 数据流转追踪</title>
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">⌁</span>
+    <div>
+      <h1>数据流转追踪 · <code>stock_dashboard.py</code></h1>
+      <p class="sub">AST 调用图（只读 <code>trace/graph.json</code> 与本地源码，不执行被分析代码）</p>
+    </div>
+  </div>
+  <div id="thresholdBanner" class="banner hidden"></div>
+  <div class="meters" id="meters"></div>
+</header>
+
+<main class="layout" id="layout">
+  <aside class="sidebar">
+    <section class="panel">
+      <label class="field-label" for="tickerInput">Ticker</label>
+      <input id="tickerInput" type="text" value="AAPL" maxlength="10"
+             spellcheck="false" autocomplete="off">
+      <div class="presets" id="presets"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">标签页 / 分区</div>
+      <div id="tabList" class="tab-list"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">复用 / 重算分界</div>
+      <ul class="legend">
+        <li><span class="swatch reuse"></span>复用区（缓存 / session_state）</li>
+        <li><span class="swatch recompute"></span>重算区（每次交互重跑）</li>
+        <li><span class="edge-local"></span>本地调用边</li>
+        <li><span class="edge-cross"></span>跨分界调用</li>
+        <li><span class="swatch unresolved"></span>不可解析</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">扫描信息</div>
+      <pre id="scanInfo" class="scan-info"></pre>
+      <button id="rescanBtn" type="button">重新读取 graph.json</button>
+    </section>
+  </aside>
+
+  <section class="content">
+    <div class="split">
+      <div class="pane nodes-pane">
+        <div class="pane-head">
+          <div class="pane-title">函数 / 调用条目<span id="entryCount" class="count"></span></div>
+          <div class="filters">
+            <label><input type="checkbox" id="hideNoLine"> 仅保留可定位源码行</label>
+            <input type="search" id="filterInput" placeholder="按函数名过滤">
+          </div>
+        </div>
+        <div id="entryList" class="entry-list"></div>
+      </div>
+      <div class="pane source-pane">
+        <div class="pane-head">
+          <div class="pane-title" id="sourceTitle">源码</div>
+          <div id="edgeSummary" class="edge-summary"></div>
+        </div>
+        <pre id="sourceView" class="source-view"><code></code></pre>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="greyout" class="greyout hidden">
+  <div class="grey-card">
+    <h2>不可解析占比超过 15%</h2>
+    <p id="greyText"></p>
+    <p class="muted">页面转灰，不给出数据流转结论。降低动态属性 / 间接调用比例后重新扫描。</p>
+  </div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

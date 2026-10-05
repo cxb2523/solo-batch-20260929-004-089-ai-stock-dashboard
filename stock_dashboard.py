@@ -20,17 +20,32 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+
+@st.cache_data(ttl=900, show_spinner=False)
+def load_stock_data(symbol, period="1y"):
+    """缓存的行情/公司信息加载器。
+
+    缓存键由 (symbol, period) 序列化后的值构成；为什么不只用 ticker、
+    以及整体重跑与阻塞式调用如何并存，见 docs/tradeoffs.md。
+    """
+    stock = yf.Ticker(symbol)
+    data = stock.history(period=period)
+    info = stock.info
+    return data, info
+
+
 class StockAnalyzer:
     def __init__(self):
         self.scaler = StandardScaler()
         self.model = RandomForestRegressor(n_estimators=100, random_state=42)
         
     def fetch_stock_data(self, symbol, period="1y"):
-        """Fetch stock data with error handling"""
+        """Fetch stock data (delegates to the module-level cached loader)."""
         try:
-            stock = yf.Ticker(symbol)
-            data = stock.history(period=period)
-            info = stock.info
+            data, info = load_stock_data(symbol, period)
+            # 缓存命中/未命中都会记录本次实际使用的键，便于追踪复用与重算
+            st.session_state["last_fetch_ticker"] = symbol
+            st.session_state["last_fetch_period"] = period
             return data, info
         except Exception as e:
             st.error(f"Error fetching data for {symbol}: {str(e)}")

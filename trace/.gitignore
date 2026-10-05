@@ -1,0 +1,5 @@
+.state.json
+__pycache__/
+*.pyc
+_shot*.png
+_graph_backup.json

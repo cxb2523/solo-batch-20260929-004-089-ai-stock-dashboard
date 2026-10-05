@@ -70,6 +70,32 @@ streamlit run stock_dashboard.py
 Navigate to http://localhost:8501
 ```
 
+## 🔍 Data-Flow Trace Viewer
+
+A static, AST-based call-graph viewer makes the app's data flow clickable:
+
+```bash
+# 1. Generate trace/graph.json (incremental rescans only reparse changed modules)
+python trace/analyzer.py
+
+# 2. Start the read-only local server (graph.json + local source only)
+python trace/server.py            # http://127.0.0.1:8899
+
+# 3. Run the gates: coverage and unresolvable-ratio print actual numbers
+node tools/verify.mjs
+```
+
+- Left panel: ticker input plus scope tabs (Streamlit tabs / checkboxes / branches).
+- Right panel: every resolvable call entry with function name, line number,
+  `st.session_state` keys, cache key and invalidation conditions.
+- Clicking a node highlights the corresponding source lines; reuse (cache /
+  session_state) vs recompute zones use different colors, cross-boundary edges
+  are red.
+- Dynamic attributes and indirect calls are recorded as **unresolvable**;
+  above 15% the page greys out and draws no conclusion.
+- Incremental rescans must match a full rescan edge-by-edge, otherwise the
+  analyzer falls back to a full scan. See [`docs/tradeoffs.md`](docs/tradeoffs.md).
+
 ![ML Predictions](screenshots/ml_predictions.jpg)
 
 ## 📦 Dependencies

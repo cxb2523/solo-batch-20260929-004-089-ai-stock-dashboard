@@ -1,0 +1,4243 @@
+{
+  "schema_version": 1,
+  "nodes": [
+    {
+      "id": "stock_dashboard:load_stock_data",
+      "module": "stock_dashboard",
+      "name": "load_stock_data",
+      "qualname": "load_stock_data",
+      "class": null,
+      "file": "stock_dashboard.py",
+      "lineno": 25,
+      "end_lineno": 34,
+      "reuse_zone": true,
+      "cache": {
+        "kind": "cache_data",
+        "ttl": 900,
+        "max_entries": null,
+        "show_spinner": false,
+        "invalidation": "任一入参值变化（Streamlit 按参数序列化后的值生成缓存键）；ttl=900 到期；显式调用 st.cache_data.clear()；进程退出或源码改动后重启"
+      },
+      "cache_key": "cache:cache_data:load_stock_data(symbol, period)",
+      "session_keys": [],
+      "params": [
+        "symbol",
+        "period"
+      ]
+    },
+    {
+      "id": "stock_dashboard:StockAnalyzer.__init__",
+      "module": "stock_dashboard",
+      "name": "__init__",
+      "qualname": "StockAnalyzer.__init__",
+      "class": "StockAnalyzer",
+      "file": "stock_dashboard.py",
+      "lineno": 38,
+      "end_lineno": 40,
+      "reuse_zone": false,
+      "cache": null,
+      "cache_key": null,
+      "session_keys": [],
+      "params": [
+        "self"
+      ]
+    },
+    {
+      "id": "stock_dashboard:StockAnalyzer.fetch_stock_data",
+      "module": "stock_dashboard",
+      "name": "fetch_stock_data",
+      "qualname": "StockAnalyzer.fetch_stock_data",
+      "class": "StockAnalyzer",
+      "file": "stock_dashboard.py",
+      "lineno": 42,
+      "end_lineno": 52,
+      "reuse_zone": true,
+      "cache": null,
+      "cache_key": null,
+      "session_keys": [
+        {
+          "key": "last_fetch_ticker",
+          "lineno": 47,
+          "access": "write"
+        },
+        {
+          "key": "last_fetch_period",
+          "lineno": 48,
+          "access": "write"
+        }
+      ],
+      "params": [
+        "self",
+        "symbol",
+        "period"
+      ]
+    },
+    {
+      "id": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "module": "stock_dashboard",
+      "name": "calculate_technical_indicators",
+      "qualname": "StockAnalyzer.calculate_technical_indicators",
+      "class": "StockAnalyzer",
+      "file": "stock_dashboard.py",
+      "lineno": 54,
+      "end_lineno": 107,
+      "reuse_zone": false,
+      "cache": null,
+      "cache_key": null,
+      "session_keys": [],
+      "params": [
+        "self",
+        "data"
+      ]
+    },
+    {
+      "id": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "module": "stock_dashboard",
+      "name": "prepare_ml_features",
+      "qualname": "StockAnalyzer.prepare_ml_features",
+      "class": "StockAnalyzer",
+      "file": "stock_dashboard.py",
+      "lineno": 109,
+      "end_lineno": 140,
+      "reuse_zone": false,
+      "cache": null,
+      "cache_key": null,
+      "session_keys": [],
+      "params": [
+        "self",
+        "data"
+      ]
+    },
+    {
+      "id": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "module": "stock_dashboard",
+      "name": "train_prediction_model",
+      "qualname": "StockAnalyzer.train_prediction_model",
+      "class": "StockAnalyzer",
+      "file": "stock_dashboard.py",
+      "lineno": 142,
+      "end_lineno": 194,
+      "reuse_zone": false,
+      "cache": null,
+      "cache_key": null,
+      "session_keys": [],
+      "params": [
+        "self",
+        "data"
+      ]
+    },
+    {
+      "id": "stock_dashboard:StockAnalyzer.predict_next_price",
+      "module": "stock_dashboard",
+      "name": "predict_next_price",
+      "qualname": "StockAnalyzer.predict_next_price",
+      "class": "StockAnalyzer",
+      "file": "stock_dashboard.py",
+      "lineno": 196,
+      "end_lineno": 204,
+      "reuse_zone": false,
+      "cache": null,
+      "cache_key": null,
+      "session_keys": [],
+      "params": [
+        "self",
+        "model_info"
+      ]
+    },
+    {
+      "id": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "module": "stock_dashboard",
+      "name": "generate_market_analysis",
+      "qualname": "StockAnalyzer.generate_market_analysis",
+      "class": "StockAnalyzer",
+      "file": "stock_dashboard.py",
+      "lineno": 206,
+      "end_lineno": 307,
+      "reuse_zone": false,
+      "cache": null,
+      "cache_key": null,
+      "session_keys": [],
+      "params": [
+        "self",
+        "data",
+        "info",
+        "symbol"
+      ]
+    },
+    {
+      "id": "stock_dashboard:create_advanced_chart",
+      "module": "stock_dashboard",
+      "name": "create_advanced_chart",
+      "qualname": "create_advanced_chart",
+      "class": null,
+      "file": "stock_dashboard.py",
+      "lineno": 309,
+      "end_lineno": 435,
+      "reuse_zone": false,
+      "cache": null,
+      "cache_key": null,
+      "session_keys": [],
+      "params": [
+        "data",
+        "symbol"
+      ]
+    },
+    {
+      "id": "stock_dashboard:create_performance_metrics",
+      "module": "stock_dashboard",
+      "name": "create_performance_metrics",
+      "qualname": "create_performance_metrics",
+      "class": null,
+      "file": "stock_dashboard.py",
+      "lineno": 437,
+      "end_lineno": 481,
+      "reuse_zone": false,
+      "cache": null,
+      "cache_key": null,
+      "session_keys": [],
+      "params": [
+        "data",
+        "symbol"
+      ]
+    },
+    {
+      "id": "stock_dashboard:main",
+      "module": "stock_dashboard",
+      "name": "main",
+      "qualname": "main",
+      "class": null,
+      "file": "stock_dashboard.py",
+      "lineno": 484,
+      "end_lineno": 785,
+      "reuse_zone": false,
+      "cache": null,
+      "cache_key": null,
+      "session_keys": [],
+      "params": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "stock_dashboard:load_stock_data",
+      "target": null,
+      "kind": "external",
+      "external": "yfinance.Ticker",
+      "reason": null,
+      "lineno": 31,
+      "preview": "yf.Ticker(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:load_stock_data",
+      "target": null,
+      "kind": "external",
+      "external": "yfinance.Ticker.history",
+      "reason": null,
+      "lineno": 32,
+      "preview": "stock.history(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:load_stock_data",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.cache_data",
+      "reason": null,
+      "lineno": 24,
+      "preview": "st.cache_data(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.__init__",
+      "target": null,
+      "kind": "external",
+      "external": "sklearn.preprocessing.StandardScaler",
+      "reason": null,
+      "lineno": 39,
+      "preview": "StandardScaler(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.__init__",
+      "target": null,
+      "kind": "external",
+      "external": "sklearn.ensemble.RandomForestRegressor",
+      "reason": null,
+      "lineno": 40,
+      "preview": "RandomForestRegressor(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.fetch_stock_data",
+      "target": "stock_dashboard:load_stock_data",
+      "kind": "local",
+      "external": null,
+      "reason": null,
+      "lineno": 45,
+      "preview": "load_stock_data(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.fetch_stock_data",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.error",
+      "reason": null,
+      "lineno": 51,
+      "preview": "st.error(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.fetch_stock_data",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.str",
+      "reason": null,
+      "lineno": 51,
+      "preview": "str(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.copy",
+      "reason": null,
+      "lineno": 56,
+      "preview": "data.copy(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling.mean",
+      "reason": null,
+      "lineno": 59,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling",
+      "reason": null,
+      "lineno": 59,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling.mean",
+      "reason": null,
+      "lineno": 60,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling",
+      "reason": null,
+      "lineno": 60,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling.mean",
+      "reason": null,
+      "lineno": 61,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling",
+      "reason": null,
+      "lineno": 61,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.ewm.mean",
+      "reason": null,
+      "lineno": 64,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.ewm",
+      "reason": null,
+      "lineno": 64,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.ewm.mean",
+      "reason": null,
+      "lineno": 65,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.ewm",
+      "reason": null,
+      "lineno": 65,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.ewm.mean",
+      "reason": null,
+      "lineno": 69,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.ewm",
+      "reason": null,
+      "lineno": 69,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.diff",
+      "reason": null,
+      "lineno": 73,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "df.diff.where.rolling.mean",
+      "reason": null,
+      "lineno": 74,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "df.diff.where.rolling",
+      "reason": null,
+      "lineno": 74,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "df.diff.where",
+      "reason": null,
+      "lineno": 74,
+      "preview": "delta.where(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "UnaryOp.rolling.mean",
+      "reason": null,
+      "lineno": 75,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "UnaryOp.rolling",
+      "reason": null,
+      "lineno": 75,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "df.diff.where",
+      "reason": null,
+      "lineno": 75,
+      "preview": "delta.where(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling.mean",
+      "reason": null,
+      "lineno": 80,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling",
+      "reason": null,
+      "lineno": 80,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling.std",
+      "reason": null,
+      "lineno": 81,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling",
+      "reason": null,
+      "lineno": 81,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling.mean",
+      "reason": null,
+      "lineno": 86,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling",
+      "reason": null,
+      "lineno": 86,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "numpy.abs",
+      "reason": null,
+      "lineno": 96,
+      "preview": "np.abs(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.shift",
+      "reason": null,
+      "lineno": 96,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "numpy.abs",
+      "reason": null,
+      "lineno": 97,
+      "preview": "np.abs(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.shift",
+      "reason": null,
+      "lineno": 97,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.max",
+      "reason": null,
+      "lineno": 98,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling.mean",
+      "reason": null,
+      "lineno": 99,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling",
+      "reason": null,
+      "lineno": 99,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling.min",
+      "reason": null,
+      "lineno": 102,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling",
+      "reason": null,
+      "lineno": 102,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling.max",
+      "reason": null,
+      "lineno": 103,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling",
+      "reason": null,
+      "lineno": 103,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling.mean",
+      "reason": null,
+      "lineno": 105,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling",
+      "reason": null,
+      "lineno": 105,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.copy",
+      "reason": null,
+      "lineno": 111,
+      "preview": "data.copy(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.pct_change",
+      "reason": null,
+      "lineno": 114,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.pct_change",
+      "reason": null,
+      "lineno": 115,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.pct_change",
+      "reason": null,
+      "lineno": 116,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.shift",
+      "reason": null,
+      "lineno": 120,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.shift",
+      "reason": null,
+      "lineno": 121,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.shift",
+      "reason": null,
+      "lineno": 122,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling.mean",
+      "reason": null,
+      "lineno": 126,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling",
+      "reason": null,
+      "lineno": 126,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling.std",
+      "reason": null,
+      "lineno": 127,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling",
+      "reason": null,
+      "lineno": 127,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling.mean",
+      "reason": null,
+      "lineno": 128,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling",
+      "reason": null,
+      "lineno": 128,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling.mean",
+      "reason": null,
+      "lineno": 129,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling",
+      "reason": null,
+      "lineno": 129,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling.mean",
+      "reason": null,
+      "lineno": 130,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling",
+      "reason": null,
+      "lineno": 130,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling.std",
+      "reason": null,
+      "lineno": 137,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling",
+      "reason": null,
+      "lineno": 137,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling.std",
+      "reason": null,
+      "lineno": 138,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.rolling",
+      "reason": null,
+      "lineno": 138,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": "stock_dashboard:StockAnalyzer.prepare_ml_features",
+      "kind": "local",
+      "external": null,
+      "reason": null,
+      "lineno": 144,
+      "preview": "self.prepare_ml_features(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": null,
+      "kind": "external",
+      "external": "data.copy.dropna",
+      "reason": null,
+      "lineno": 145,
+      "preview": "df.dropna(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.len",
+      "reason": null,
+      "lineno": 147,
+      "preview": "len(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.any",
+      "reason": null,
+      "lineno": 153,
+      "preview": "any(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.len",
+      "reason": null,
+      "lineno": 158,
+      "preview": "len(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": null,
+      "kind": "external",
+      "external": "df.dropna.fillna.fillna",
+      "reason": null,
+      "lineno": 161,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": null,
+      "kind": "external",
+      "external": "df.dropna.fillna",
+      "reason": null,
+      "lineno": 161,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": null,
+      "kind": "external",
+      "external": "df.dropna.shift",
+      "reason": null,
+      "lineno": 162,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": null,
+      "kind": "external",
+      "external": "df.fillna.fillna.isna.any",
+      "reason": null,
+      "lineno": 169,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": null,
+      "kind": "external",
+      "external": "df.fillna.fillna.isna",
+      "reason": null,
+      "lineno": 169,
+      "preview": "X.isna(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": null,
+      "kind": "external",
+      "external": "df.shift.isna",
+      "reason": null,
+      "lineno": 169,
+      "preview": "y.isna(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.len",
+      "reason": null,
+      "lineno": 173,
+      "preview": "len(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": null,
+      "kind": "external",
+      "external": "sklearn.model_selection.train_test_split",
+      "reason": null,
+      "lineno": 177,
+      "preview": "train_test_split(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": null,
+      "kind": "external",
+      "external": "StandardScaler.fit_transform",
+      "reason": null,
+      "lineno": 179,
+      "preview": "self.scaler.fit_transform(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": null,
+      "kind": "external",
+      "external": "StandardScaler.transform",
+      "reason": null,
+      "lineno": 180,
+      "preview": "self.scaler.transform(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": null,
+      "kind": "external",
+      "external": "RandomForestRegressor.fit",
+      "reason": null,
+      "lineno": 182,
+      "preview": "self.model.fit(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": null,
+      "kind": "external",
+      "external": "RandomForestRegressor.score",
+      "reason": null,
+      "lineno": 185,
+      "preview": "self.model.score(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": null,
+      "kind": "external",
+      "external": "RandomForestRegressor.score",
+      "reason": null,
+      "lineno": 186,
+      "preview": "self.model.score(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.dict",
+      "reason": null,
+      "lineno": 191,
+      "preview": "dict(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.zip",
+      "reason": null,
+      "lineno": 191,
+      "preview": "zip(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.predict_next_price",
+      "target": null,
+      "kind": "external",
+      "external": "StandardScaler.transform",
+      "reason": null,
+      "lineno": 201,
+      "preview": "self.scaler.transform(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.predict_next_price",
+      "target": null,
+      "kind": "external",
+      "external": "RandomForestRegressor.predict",
+      "reason": null,
+      "lineno": 202,
+      "preview": "self.model.predict(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.get",
+      "reason": null,
+      "lineno": 216,
+      "preview": "latest.get(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.get",
+      "reason": null,
+      "lineno": 217,
+      "preview": "latest.get(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.get",
+      "reason": null,
+      "lineno": 218,
+      "preview": "latest.get(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.get",
+      "reason": null,
+      "lineno": 219,
+      "preview": "latest.get(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.get",
+      "reason": null,
+      "lineno": 220,
+      "preview": "latest.get(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.rolling.mean",
+      "reason": null,
+      "lineno": 223,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.rolling",
+      "reason": null,
+      "lineno": 223,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.get",
+      "reason": null,
+      "lineno": 227,
+      "preview": "latest.get(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.get",
+      "reason": null,
+      "lineno": 228,
+      "preview": "latest.get(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 235,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 237,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 239,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 241,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 243,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 245,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 249,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 251,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 253,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 255,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 257,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 259,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 263,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 265,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 267,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 269,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 273,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 275,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 279,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 281,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 283,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 285,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 289,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 291,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 293,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 295,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 298,
+      "preview": "info.get(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 301,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 303,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "target": null,
+      "kind": "external",
+      "external": "List.append",
+      "reason": null,
+      "lineno": 305,
+      "preview": "analysis.append(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "plotly.subplots.make_subplots",
+      "reason": null,
+      "lineno": 311,
+      "preview": "make_subplots(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "make_subplots.add_trace",
+      "reason": null,
+      "lineno": 320,
+      "preview": "fig.add_trace(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "plotly.graph_objects.Candlestick",
+      "reason": null,
+      "lineno": 321,
+      "preview": "go.Candlestick(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.enumerate",
+      "reason": null,
+      "lineno": 338,
+      "preview": "enumerate(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.isna.all",
+      "reason": null,
+      "lineno": 339,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.isna",
+      "reason": null,
+      "lineno": 339,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "make_subplots.add_trace",
+      "reason": null,
+      "lineno": 340,
+      "preview": "fig.add_trace(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "plotly.graph_objects.Scatter",
+      "reason": null,
+      "lineno": 341,
+      "preview": "go.Scatter(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.dict",
+      "reason": null,
+      "lineno": 342,
+      "preview": "dict(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.all",
+      "reason": null,
+      "lineno": 347,
+      "preview": "all(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "make_subplots.add_trace",
+      "reason": null,
+      "lineno": 348,
+      "preview": "fig.add_trace(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "plotly.graph_objects.Scatter",
+      "reason": null,
+      "lineno": 349,
+      "preview": "go.Scatter(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.dict",
+      "reason": null,
+      "lineno": 350,
+      "preview": "dict(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "make_subplots.add_trace",
+      "reason": null,
+      "lineno": 354,
+      "preview": "fig.add_trace(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "plotly.graph_objects.Scatter",
+      "reason": null,
+      "lineno": 355,
+      "preview": "go.Scatter(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.dict",
+      "reason": null,
+      "lineno": 356,
+      "preview": "dict(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.range",
+      "reason": null,
+      "lineno": 364,
+      "preview": "range(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.len",
+      "reason": null,
+      "lineno": 364,
+      "preview": "len(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "make_subplots.add_trace",
+      "reason": null,
+      "lineno": 365,
+      "preview": "fig.add_trace(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "plotly.graph_objects.Bar",
+      "reason": null,
+      "lineno": 366,
+      "preview": "go.Bar(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "make_subplots.add_trace",
+      "reason": null,
+      "lineno": 372,
+      "preview": "fig.add_trace(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "plotly.graph_objects.Scatter",
+      "reason": null,
+      "lineno": 373,
+      "preview": "go.Scatter(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.dict",
+      "reason": null,
+      "lineno": 374,
+      "preview": "dict(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.all",
+      "reason": null,
+      "lineno": 379,
+      "preview": "all(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "make_subplots.add_trace",
+      "reason": null,
+      "lineno": 380,
+      "preview": "fig.add_trace(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "plotly.graph_objects.Scatter",
+      "reason": null,
+      "lineno": 381,
+      "preview": "go.Scatter(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.dict",
+      "reason": null,
+      "lineno": 382,
+      "preview": "dict(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "make_subplots.add_trace",
+      "reason": null,
+      "lineno": 385,
+      "preview": "fig.add_trace(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "plotly.graph_objects.Scatter",
+      "reason": null,
+      "lineno": 386,
+      "preview": "go.Scatter(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.dict",
+      "reason": null,
+      "lineno": 387,
+      "preview": "dict(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "make_subplots.add_trace",
+      "reason": null,
+      "lineno": 392,
+      "preview": "fig.add_trace(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "plotly.graph_objects.Bar",
+      "reason": null,
+      "lineno": 393,
+      "preview": "go.Bar(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "make_subplots.add_trace",
+      "reason": null,
+      "lineno": 400,
+      "preview": "fig.add_trace(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "plotly.graph_objects.Scatter",
+      "reason": null,
+      "lineno": 401,
+      "preview": "go.Scatter(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.dict",
+      "reason": null,
+      "lineno": 402,
+      "preview": "dict(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "make_subplots.add_hline",
+      "reason": null,
+      "lineno": 406,
+      "preview": "fig.add_hline(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "make_subplots.add_hline",
+      "reason": null,
+      "lineno": 407,
+      "preview": "fig.add_hline(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "make_subplots.add_hline",
+      "reason": null,
+      "lineno": 408,
+      "preview": "fig.add_hline(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "make_subplots.add_trace",
+      "reason": null,
+      "lineno": 411,
+      "preview": "fig.add_trace(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "plotly.graph_objects.Scatter",
+      "reason": null,
+      "lineno": 412,
+      "preview": "go.Scatter(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.dict",
+      "reason": null,
+      "lineno": 413,
+      "preview": "dict(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "make_subplots.add_trace",
+      "reason": null,
+      "lineno": 416,
+      "preview": "fig.add_trace(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "plotly.graph_objects.Scatter",
+      "reason": null,
+      "lineno": 417,
+      "preview": "go.Scatter(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.dict",
+      "reason": null,
+      "lineno": 418,
+      "preview": "dict(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "make_subplots.update_layout",
+      "reason": null,
+      "lineno": 422,
+      "preview": "fig.update_layout(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.dict",
+      "reason": null,
+      "lineno": 428,
+      "preview": "dict(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.range",
+      "reason": null,
+      "lineno": 432,
+      "preview": "range(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_advanced_chart",
+      "target": null,
+      "kind": "external",
+      "external": "make_subplots.update_xaxes",
+      "reason": null,
+      "lineno": 433,
+      "preview": "fig.update_xaxes(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.pct_change",
+      "reason": null,
+      "lineno": 440,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "BinOp.cumprod",
+      "reason": null,
+      "lineno": 441,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.std",
+      "reason": null,
+      "lineno": 445,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "numpy.sqrt",
+      "reason": null,
+      "lineno": 445,
+      "preview": "np.sqrt(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.mean",
+      "reason": null,
+      "lineno": 446,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.std",
+      "reason": null,
+      "lineno": 446,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "numpy.sqrt",
+      "reason": null,
+      "lineno": 446,
+      "preview": "np.sqrt(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "BinOp.min",
+      "reason": null,
+      "lineno": 448,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.expanding.max",
+      "reason": null,
+      "lineno": 448,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.expanding",
+      "reason": null,
+      "lineno": 448,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.columns",
+      "reason": null,
+      "lineno": 450,
+      "preview": "st.columns(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.metric",
+      "reason": null,
+      "lineno": 453,
+      "preview": "st.metric(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.metric",
+      "reason": null,
+      "lineno": 455,
+      "preview": "st.metric(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.metric",
+      "reason": null,
+      "lineno": 457,
+      "preview": "st.metric(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.metric",
+      "reason": null,
+      "lineno": 459,
+      "preview": "st.metric(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "plotly.graph_objects.Figure",
+      "reason": null,
+      "lineno": 462,
+      "preview": "go.Figure(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "plotly.graph_objects.Figure.add_trace",
+      "reason": null,
+      "lineno": 463,
+      "preview": "fig.add_trace(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "plotly.graph_objects.Scatter",
+      "reason": null,
+      "lineno": 464,
+      "preview": "go.Scatter(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.dict",
+      "reason": null,
+      "lineno": 469,
+      "preview": "dict(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "plotly.graph_objects.Figure.update_layout",
+      "reason": null,
+      "lineno": 473,
+      "preview": "fig.update_layout(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:create_performance_metrics",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.plotly_chart",
+      "reason": null,
+      "lineno": 481,
+      "preview": "st.plotly_chart(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.title",
+      "reason": null,
+      "lineno": 485,
+      "preview": "st.title(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.markdown",
+      "reason": null,
+      "lineno": 486,
+      "preview": "st.markdown(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.sidebar.header",
+      "reason": null,
+      "lineno": 489,
+      "preview": "st.sidebar.header(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.sidebar.markdown",
+      "reason": null,
+      "lineno": 490,
+      "preview": "st.sidebar.markdown(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.sidebar.selectbox",
+      "reason": null,
+      "lineno": 499,
+      "preview": "st.sidebar.selectbox(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.list",
+      "reason": null,
+      "lineno": 501,
+      "preview": "list(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "Dict.keys",
+      "reason": null,
+      "lineno": 501,
+      "preview": "popular_stocks.keys(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.sidebar.text_input.upper",
+      "reason": null,
+      "lineno": 506,
+      "preview": "<expr>(...)",
+      "scopes": [
+        {
+          "kind": "branch",
+          "label": "branch:stock_choice"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.sidebar.text_input",
+      "reason": null,
+      "lineno": 506,
+      "preview": "st.sidebar.text_input(...)",
+      "scopes": [
+        {
+          "kind": "branch",
+          "label": "branch:stock_choice"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.sidebar.selectbox",
+      "reason": null,
+      "lineno": 511,
+      "preview": "st.sidebar.selectbox(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.sidebar.markdown",
+      "reason": null,
+      "lineno": 517,
+      "preview": "st.sidebar.markdown(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.sidebar.subheader",
+      "reason": null,
+      "lineno": 520,
+      "preview": "st.sidebar.subheader(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.sidebar.checkbox",
+      "reason": null,
+      "lineno": 521,
+      "preview": "st.sidebar.checkbox(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.sidebar.checkbox",
+      "reason": null,
+      "lineno": 522,
+      "preview": "st.sidebar.checkbox(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.sidebar.checkbox",
+      "reason": null,
+      "lineno": 523,
+      "preview": "st.sidebar.checkbox(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.sidebar.checkbox",
+      "reason": null,
+      "lineno": 524,
+      "preview": "st.sidebar.checkbox(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.sidebar.markdown",
+      "reason": null,
+      "lineno": 526,
+      "preview": "st.sidebar.markdown(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.sidebar.button",
+      "reason": null,
+      "lineno": 528,
+      "preview": "st.sidebar.button(...)",
+      "scopes": [
+        {
+          "kind": "action",
+          "label": "🔄 Refresh Data"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.cache_data.clear",
+      "reason": null,
+      "lineno": 529,
+      "preview": "st.cache_data.clear(...)",
+      "scopes": [
+        {
+          "kind": "action",
+          "label": "🔄 Refresh Data"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.rerun",
+      "reason": null,
+      "lineno": 530,
+      "preview": "st.rerun(...)",
+      "scopes": [
+        {
+          "kind": "action",
+          "label": "🔄 Refresh Data"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": "stock_dashboard:StockAnalyzer.__init__",
+      "kind": "local",
+      "external": null,
+      "reason": null,
+      "lineno": 533,
+      "preview": "StockAnalyzer(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.spinner",
+      "reason": null,
+      "lineno": 536,
+      "preview": "st.spinner(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": "stock_dashboard:StockAnalyzer.fetch_stock_data",
+      "kind": "local",
+      "external": null,
+      "reason": null,
+      "lineno": 537,
+      "preview": "analyzer.fetch_stock_data(...)",
+      "scopes": [],
+      "cross_boundary": true
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.error",
+      "reason": null,
+      "lineno": 540,
+      "preview": "st.error(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.info",
+      "reason": null,
+      "lineno": 541,
+      "preview": "st.info(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.spinner",
+      "reason": null,
+      "lineno": 545,
+      "preview": "st.spinner(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "⚙️ Calculating technical indicators..."
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": "stock_dashboard:StockAnalyzer.calculate_technical_indicators",
+      "kind": "local",
+      "external": null,
+      "reason": null,
+      "lineno": 546,
+      "preview": "analyzer.calculate_technical_indicators(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "⚙️ Calculating technical indicators..."
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.markdown",
+      "reason": null,
+      "lineno": 549,
+      "preview": "st.markdown(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.columns",
+      "reason": null,
+      "lineno": 552,
+      "preview": "st.columns(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.metric",
+      "reason": null,
+      "lineno": 560,
+      "preview": "st.metric(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.rolling.mean",
+      "reason": null,
+      "lineno": 568,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.rolling",
+      "reason": null,
+      "lineno": 568,
+      "preview": "<expr>(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.metric",
+      "reason": null,
+      "lineno": 570,
+      "preview": "st.metric(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "pandas.isna",
+      "reason": null,
+      "lineno": 577,
+      "preview": "pd.isna(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.metric",
+      "reason": null,
+      "lineno": 580,
+      "preview": "st.metric(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.metric",
+      "reason": null,
+      "lineno": 586,
+      "preview": "st.metric(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "pandas.isna",
+      "reason": null,
+      "lineno": 589,
+      "preview": "pd.isna(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.metric",
+      "reason": null,
+      "lineno": 592,
+      "preview": "st.metric(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.metric",
+      "reason": null,
+      "lineno": 598,
+      "preview": "st.metric(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 601,
+      "preview": "info.get(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.metric",
+      "reason": null,
+      "lineno": 609,
+      "preview": "st.metric(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.metric",
+      "reason": null,
+      "lineno": 611,
+      "preview": "st.metric(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.markdown",
+      "reason": null,
+      "lineno": 613,
+      "preview": "st.markdown(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.subheader",
+      "reason": null,
+      "lineno": 617,
+      "preview": "st.subheader(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_technical"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.spinner",
+      "reason": null,
+      "lineno": 618,
+      "preview": "st.spinner(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_technical"
+        },
+        {
+          "kind": "tab",
+          "label": "Creating advanced charts..."
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": "stock_dashboard:create_advanced_chart",
+      "kind": "local",
+      "external": null,
+      "reason": null,
+      "lineno": 619,
+      "preview": "create_advanced_chart(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_technical"
+        },
+        {
+          "kind": "tab",
+          "label": "Creating advanced charts..."
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.plotly_chart",
+      "reason": null,
+      "lineno": 620,
+      "preview": "st.plotly_chart(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_technical"
+        },
+        {
+          "kind": "tab",
+          "label": "Creating advanced charts..."
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.subheader",
+      "reason": null,
+      "lineno": 624,
+      "preview": "st.subheader(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_performance"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": "stock_dashboard:create_performance_metrics",
+      "kind": "local",
+      "external": null,
+      "reason": null,
+      "lineno": 625,
+      "preview": "create_performance_metrics(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_performance"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.subheader",
+      "reason": null,
+      "lineno": 629,
+      "preview": "st.subheader(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_prediction"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.columns",
+      "reason": null,
+      "lineno": 631,
+      "preview": "st.columns(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_prediction"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.spinner",
+      "reason": null,
+      "lineno": 634,
+      "preview": "st.spinner(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_prediction"
+        },
+        {
+          "kind": "tab",
+          "label": "🤖 Training AI prediction model..."
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": "stock_dashboard:StockAnalyzer.train_prediction_model",
+      "kind": "local",
+      "external": null,
+      "reason": null,
+      "lineno": 635,
+      "preview": "analyzer.train_prediction_model(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_prediction"
+        },
+        {
+          "kind": "tab",
+          "label": "🤖 Training AI prediction model..."
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": "stock_dashboard:StockAnalyzer.predict_next_price",
+      "kind": "local",
+      "external": null,
+      "reason": null,
+      "lineno": 638,
+      "preview": "analyzer.predict_next_price(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_prediction"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.success",
+      "reason": null,
+      "lineno": 642,
+      "preview": "st.success(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_prediction"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.columns",
+      "reason": null,
+      "lineno": 644,
+      "preview": "st.columns(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_prediction"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.metric",
+      "reason": null,
+      "lineno": 646,
+      "preview": "st.metric(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_prediction"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.metric",
+      "reason": null,
+      "lineno": 655,
+      "preview": "st.metric(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_prediction"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.info",
+      "reason": null,
+      "lineno": 662,
+      "preview": "st.info(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_prediction"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.warning",
+      "reason": null,
+      "lineno": 664,
+      "preview": "st.warning(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_prediction"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "pandas.DataFrame.sort_values.head",
+      "reason": null,
+      "lineno": 669,
+      "preview": "<expr>(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_prediction"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "pandas.DataFrame.sort_values",
+      "reason": null,
+      "lineno": 669,
+      "preview": "<expr>(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_prediction"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "pandas.DataFrame",
+      "reason": null,
+      "lineno": 669,
+      "preview": "pd.DataFrame(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_prediction"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.list",
+      "reason": null,
+      "lineno": 670,
+      "preview": "list(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_prediction"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.train_prediction_model.items",
+      "reason": null,
+      "lineno": 670,
+      "preview": "<expr>(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_prediction"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "plotly.express.bar",
+      "reason": null,
+      "lineno": 674,
+      "preview": "px.bar(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_prediction"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "plotly.express.bar.update_layout",
+      "reason": null,
+      "lineno": 682,
+      "preview": "fig_importance.update_layout(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_prediction"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.plotly_chart",
+      "reason": null,
+      "lineno": 683,
+      "preview": "st.plotly_chart(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_prediction"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.subheader",
+      "reason": null,
+      "lineno": 687,
+      "preview": "st.subheader(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_analysis"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.spinner",
+      "reason": null,
+      "lineno": 689,
+      "preview": "st.spinner(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_analysis"
+        },
+        {
+          "kind": "tab",
+          "label": "🤖 Generating intelligent market insights..."
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": "stock_dashboard:StockAnalyzer.generate_market_analysis",
+      "kind": "local",
+      "external": null,
+      "reason": null,
+      "lineno": 690,
+      "preview": "analyzer.generate_market_analysis(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_analysis"
+        },
+        {
+          "kind": "tab",
+          "label": "🤖 Generating intelligent market insights..."
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "builtins.enumerate",
+      "reason": null,
+      "lineno": 693,
+      "preview": "enumerate(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_analysis"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.success",
+      "reason": null,
+      "lineno": 696,
+      "preview": "st.success(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_analysis"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.error",
+      "reason": null,
+      "lineno": 698,
+      "preview": "st.error(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_analysis"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.warning",
+      "reason": null,
+      "lineno": 700,
+      "preview": "st.warning(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_analysis"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.info",
+      "reason": null,
+      "lineno": 702,
+      "preview": "st.info(...)",
+      "scopes": [
+        {
+          "kind": "checkbox",
+          "label": "show_analysis"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.markdown",
+      "reason": null,
+      "lineno": 705,
+      "preview": "st.markdown(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.tabs",
+      "reason": null,
+      "lineno": 707,
+      "preview": "st.tabs(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.columns",
+      "reason": null,
+      "lineno": 711,
+      "preview": "st.columns(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.write",
+      "reason": null,
+      "lineno": 714,
+      "preview": "st.write(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 716,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 717,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 718,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 719,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 720,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 721,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 721,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "Dict.items",
+      "reason": null,
+      "lineno": 724,
+      "preview": "company_info.items(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.write",
+      "reason": null,
+      "lineno": 725,
+      "preview": "st.write(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.write",
+      "reason": null,
+      "lineno": 728,
+      "preview": "st.write(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 730,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 730,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 731,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 731,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 732,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 732,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 733,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 733,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 734,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 734,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 735,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 735,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 736,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 736,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 737,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.fetch_stock_data.get",
+      "reason": null,
+      "lineno": 737,
+      "preview": "info.get(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "Dict.items",
+      "reason": null,
+      "lineno": 740,
+      "preview": "financial_info.items(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.write",
+      "reason": null,
+      "lineno": 741,
+      "preview": "st.write(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.warning",
+      "reason": null,
+      "lineno": 743,
+      "preview": "st.warning(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📋 Company Info"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.write",
+      "reason": null,
+      "lineno": 746,
+      "preview": "st.write(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📊 Raw Data"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.tail",
+      "reason": null,
+      "lineno": 747,
+      "preview": "<expr>(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📊 Raw Data"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "data.tail.index.strftime",
+      "reason": null,
+      "lineno": 748,
+      "preview": "display_data.index.strftime(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📊 Raw Data"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.dataframe",
+      "reason": null,
+      "lineno": 749,
+      "preview": "st.dataframe(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📊 Raw Data"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "data.tail.to_csv",
+      "reason": null,
+      "lineno": 752,
+      "preview": "display_data.to_csv(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📊 Raw Data"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.download_button",
+      "reason": null,
+      "lineno": 753,
+      "preview": "st.download_button(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "📊 Raw Data"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.write",
+      "reason": null,
+      "lineno": 761,
+      "preview": "st.write(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "🔧 Technical Indicators"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "analyzer.calculate_technical_indicators.tail",
+      "reason": null,
+      "lineno": 767,
+      "preview": "<expr>(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "🔧 Technical Indicators"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "data.tail.index.strftime",
+      "reason": null,
+      "lineno": 768,
+      "preview": "tech_data.index.strftime(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "🔧 Technical Indicators"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.dataframe",
+      "reason": null,
+      "lineno": 769,
+      "preview": "st.dataframe(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "🔧 Technical Indicators"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "data.tail.round",
+      "reason": null,
+      "lineno": 769,
+      "preview": "tech_data.round(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "🔧 Technical Indicators"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.warning",
+      "reason": null,
+      "lineno": 771,
+      "preview": "st.warning(...)",
+      "scopes": [
+        {
+          "kind": "tab",
+          "label": "🔧 Technical Indicators"
+        }
+      ],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.markdown",
+      "reason": null,
+      "lineno": 774,
+      "preview": "st.markdown(...)",
+      "scopes": [],
+      "cross_boundary": false
+    },
+    {
+      "source": "stock_dashboard:main",
+      "target": null,
+      "kind": "external",
+      "external": "streamlit.markdown",
+      "reason": null,
+      "lineno": 775,
+      "preview": "st.markdown(...)",
+      "scopes": [],
+      "cross_boundary": false
+    }
+  ],
+  "sections": [
+    "Creating advanced charts...",
+    "branch:stock_choice",
+    "show_analysis",
+    "show_performance",
+    "show_prediction",
+    "show_technical",
+    "⚙️ Calculating technical indicators...",
+    "📊 Raw Data",
+    "📋 Company Info",
+    "🔄 Refresh Data",
+    "🔧 Technical Indicators",
+    "🤖 Generating intelligent market insights...",
+    "🤖 Training AI prediction model..."
+  ],
+  "stats": {
+    "total_calls": 321,
+    "local_calls": 10,
+    "external_calls": 311,
+    "unresolved_calls": 0,
+    "unresolvable_ratio": 0.0,
+    "unresolvable_limit": 0.15,
+    "total_functions": 11,
+    "reached_functions": 11,
+    "coverage": 1.0,
+    "coverage_floor": 0.8,
+    "threshold_exceeded": false,
+    "per_module": {
+      "stock_dashboard": {
+        "calls": 321,
+        "local": 10,
+        "external": 311,
+        "unresolved": 0,
+        "unresolvable_ratio": 0.0
+      }
+    }
+  },
+  "modules": [
+    "stock_dashboard"
+  ],
+  "scan": {
+    "mode": "full",
+    "changed_modules": [
+      "stock_dashboard"
+    ],
+    "fallback_reason": "命令行指定 --full",
+    "root": "D:\\gsb-auto\\batches\\batch-20260929-004\\089-ai-stock-dashboard\\B"
+  }
+}
